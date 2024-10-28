@@ -21,7 +21,7 @@ const login = async (prevState: any, formData: FormData) => {
     return { message: "Please fill in all fields" };
   }
   await connectDB();
-  const user = await User.findOne({ email });
+  const user = await User.findOne({ email }).select("+password");
   if (!user) {
     return { message: "User not found" };
   }
