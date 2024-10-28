@@ -36,18 +36,10 @@ const login = async (prevState: any, formData: FormData) => {
       email,
       password,
     });
-<<<<<<< HEAD
   } catch (err) {
     console.log(err);
   }
   redirect("/");
-=======
-
-  } catch (err) {
-    console.log(err);
-  }
-    redirect("/");
->>>>>>> 670705df79c477443c8cfcf840d2e7a788128e74
 };
 
 const register = async (prevState: any, formData: FormData) => {
