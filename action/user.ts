@@ -20,6 +20,7 @@ const login = async (prevState: any, formData: FormData) => {
   if (!email || !password) {
     return { message: "Please fill in all fields" };
   }
+  await connectDB();
   const user = await User.findOne({ email });
   if (!user) {
     return { message: "User not found" };
