@@ -1,5 +1,4 @@
 "use server";
-
 import connectDB from "@/lib/db";
 import { User } from "@/models/User";
 import { redirect } from "next/navigation";
@@ -37,11 +36,10 @@ const login = async (prevState: any, formData: FormData) => {
       email,
       password,
     });
-
-    redirect("/");
   } catch (err) {
     console.log(err);
   }
+  redirect("/");
 };
 
 const register = async (prevState: any, formData: FormData) => {

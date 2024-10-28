@@ -10,8 +10,6 @@ const initialState = {
   message: null,
 };
 const LogIn = () => {
-  const { pending } = useFormStatus();
-
   const [state, formAction] = useFormState(login as any, initialState);
   return (
     <main className=" h-screen w-4/5 mx-auto flex items-center justify-between flex-col">
@@ -51,11 +49,18 @@ const LogIn = () => {
             Register
           </Link>
         </span>
-        <Button type="submit" className="secondary-btn mt-5">
-          {pending ? "Loading..." : "Log In"}
-        </Button>
+        <LoginBtn />
       </form>
     </main>
+  );
+};
+
+const LoginBtn = () => {
+  const { pending } = useFormStatus();
+  return (
+    <Button type="submit" className="secondary-btn mt-5">
+      {pending ? "Loading..." : "Log In"}
+    </Button>
   );
 };
 

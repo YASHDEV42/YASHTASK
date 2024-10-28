@@ -12,7 +12,6 @@ const initialState = {
   message: null,
 };
 const Submit = () => {
-  const { pending } = useFormStatus();
   const [state, formAction] = useFormState(register as any, initialState);
 
   return (
@@ -92,15 +91,7 @@ const Submit = () => {
             </Link>
           </span>
           <p className=" text-red-600 font-bold text-lg">{state?.message}</p>
-          {pending ? (
-            <Button type="submit" disabled className="secondary-btn mt-5">
-              Registering...
-            </Button>
-          ) : (
-            <Button type="submit" className="secondary-btn mt-5">
-              Register
-            </Button>
-          )}
+          <Btn />
         </form>
       </div>
       <h3 className="text-xl font-semibold  mb-5">OR</h3>
@@ -119,6 +110,15 @@ const Submit = () => {
         </Button>
       </form>
     </main>
+  );
+};
+
+const Btn = () => {
+  const { pending } = useFormStatus();
+  return (
+    <Button type="submit" className="secondary-btn mt-5">
+      {pending ? "Loading..." : "Register"}
+    </Button>
   );
 };
 
