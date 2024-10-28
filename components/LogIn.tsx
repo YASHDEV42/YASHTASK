@@ -58,7 +58,11 @@ const LogIn = () => {
 const LoginBtn = () => {
   const { pending } = useFormStatus();
   return (
-    <Button type="submit" className="secondary-btn mt-5">
+    <Button
+      type="submit"
+      className={`secondary-btn mt-5 ${pending && "opacity-50"}`}
+      disabled={pending}
+    >
       {pending ? "Loading..." : "Log In"}
     </Button>
   );
