@@ -16,7 +16,7 @@ const googleLogin = async () => {
 
 const login = async (prevState: any, formData: FormData) => {
   const email = formData.get("email") as string;
-  const password = formData.get("password") as string | null;
+  const password = formData.get("password") as string;
   if (!email || !password) {
     return { message: "Please fill in all fields" };
   }
