@@ -38,10 +38,10 @@ const login = async (prevState: any, formData: FormData) => {
       password,
     });
 
-    redirect("/");
   } catch (err) {
     console.log(err);
   }
+    redirect("/");
 };
 
 const register = async (prevState: any, formData: FormData) => {
