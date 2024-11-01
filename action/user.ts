@@ -19,14 +19,19 @@ const login = async (prevState: any, formData: FormData) => {
   if (!email || !password) {
     return { message: "Please fill in all fields" };
   }
-  await connectDB();
-  const user = await User.findOne({ email }).select("+password");
-  if (!user) {
-    return { message: "User not found" };
-  }
-  const valid = user ? await bcrypt.compare(password, user.password) : false;
-  if (!valid) {
-    return { message: "Password is incorrect" };
+  try {
+    await connectDB();
+    const user = await User.findOne({ email }).select("+password");
+    console.log(user);
+    if (!user) {
+      return { message: "User not found" };
+    }
+    const valid = user ? await bcrypt.compare(password, user.password) : false;
+    if (!valid) {
+      return { message: "Password is incorrect" };
+    }
+  } catch (error) {
+    console.log(error);
   }
 
   try {
