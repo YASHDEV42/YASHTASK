@@ -86,11 +86,11 @@ p {
   @apply text-lg;
   @apply font-bold;
   @apply rounded-md;
-  @apply w-28;
+  @apply w-32;
   @apply h-10;
-  @apply md:w-32;
+  @apply md:w-36;
   @apply md:h-12;
-  @apply lg:w-36;
+  @apply lg:w-40;
   @apply lg:h-12;
   @apply shadow-lg;
   @apply border-2;
